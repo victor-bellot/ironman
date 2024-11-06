@@ -1,0 +1,76 @@
+# some useful commands : use ctl+f
+
+# fully installing CUDA 11.3 using conda (see https://github.com/conda/conda/issues/7757)
+conda install nvidia::cuda-nvml-dev
+conda install cuda -c nvidia/label/cuda-11.3.0
+
+# to install PyTorch with CUDA compatibility see https://pytorch.org/get-started/previous-versions/
+
+# create a conda environment satisfying some requirements
+conda env create -vv -f environment.yml
+conda env update -f environment.yml
+
+# to avoid 'AttributeError: module 'numpy' has no attribute 'bool''
+numpy=1.23.1
+
+# open system monitor
+gnome-system-monitor
+
+# watch GPU performance
+nvtop
+watch -n 1 nvidia-smi
+
+# manage nvidia drivers in ubuntu
+sudo ubuntu-drivers list
+sudo ubuntu-drivers install
+
+# To remove CUDA Toolkit
+sudo apt-get --purge remove "*cuda*" "*cublas*" "*cufft*" "*cufile*" "*curand*" \
+ "*cusolver*" "*cusparse*" "*gds-tools*" "*npp*" "*nvjpeg*" "nsight*" "*nvvm*"
+
+# To remove NVIDIA Drivers
+sudo apt-get --purge remove "*nvidia*" "libxnvctrl*"
+
+# To clean up the uninstall
+sudo apt-get autoremove
+
+# to visualize tensor's logs
+tensorboard --logdir=../data/experiments/<name>
+
+# allow everyone the use X11
+xhost +local:
+
+# change docker user's group to avoid using sudo each time
+sudo usermod -aG docker $USER
+
+# DOCKER
+docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix:rw --env=DISPLAY --runtime=nvidia --gpus all shadow_img
+docker start silly_jackson
+sudo docker build -t graspd_img .
+sudo docker run -p 4000:80 graspd_img
+
+# change ower & group
+chown -R 1001:1001 outputs/
+
+# build a specific package along with its dependencies
+catkin_make --only-pkg-with-deps grasp_selection
+
+# Fix FeatUp
+cp bpe_simple_vocab_16e6.txt.gz /home/vb278668/miniconda3/envs/dinov2/lib/python3.9/site-packages/featup/featurizers/maskclip/
+
+# scipy.spatial.transform.rotation .as_dcm -> .as_matrix
+https://stackoverflow.com/questions/65628149/ratcave-scipy-spatial-transform-rotation-rotation-object-has-no-attribute-a
+
+# Using LaTeX expression in Plotly dash
+https://github.com/plotly/dash/releases/tag/v2.3.0
+
+# argparse bool option
+parser.add_argument('--visualize', action='store_true')
+
+# using Python RegEx
+see DexGraspNet tools.py parse_args_from_output_file()
+
+# TorchSDF installation requires setuptools==68.2.2
+
+# koalin must 0.15.0
+# PyTorch shouldn't be 2.x.y
