@@ -1,24 +1,23 @@
-# Projet de Fin d'Étude au CEA-LIST
+# End-of-Study Project at CEA-LIST
 
-Ce stage respect une clause confidentialité industrielle (mon encadrant tient à la possibilité de breveter le travail effectué).
+This internship is subject to an industrial confidentiality agreement (my supervisor is keen on the possibility of patenting the work done).
 
-Ainsi je ne suis pas en mesure de diffuser mon rapport de stage.
-De même, les codes de la méthode développée ne sont pas disponible sur ce répertoire.
+As such, I am not able to share my internship report. Similarly, the code for the developed method is not available in this repository.
 
 ![](documents/illustration.jpeg)
 
-## Travail effectué
+## Work Completed
 
-L'objectif de ce stage était de concevoir une méthode générant des préhensions pluri-digitales d’objets partiellement perçus (perception depuis un point de vue d'une caméra profondeur).
+The goal of this internship was to design a method for generating multi-finger grasps of partially perceived objects (perception from a depth camera viewpoint).
 
-Après étude de la préhension robotique, et identification des approches les plus prometteuses ainsi que leurs limites, 
-nous proposons la méthode *IronMan* (voir les slides de présentation pour plus d'information).
+After studying robotic grasping and identifying the most promising approaches along with their limitations, we propose the IronMan method 
+(see the presentation slides for more information).
 
-## Publications étudiées
+## Publications Studied
 
-Voir 'documents/papers-notes.md'.
+See 'documents/papers-notes.md'.
 
-## Méthodes étudiées
+## Methods Studied
 
 - [DexGraspNet](https://github.com/PKU-EPIC/DexGraspNet)
 - [GenDexGrasp](https://github.com/tengyu-liu/GenDexGrasp)
